@@ -13,17 +13,20 @@ See [this ticket](https://ray-secur.atlassian.net/browse/RAYS-56) for more infor
 WINDOWS 
 1. Clone this repository to the desired filesystem location
 2. Create a "build" subfolder in the cloned directory
-3. Use CMAKE to generate build files (either using cmake-gui or the commandline) for x64 with the following settings :   
+3. Start cmake-gui and click "Browse Source..." and select the opencv clone directory
+4. Click "Browse Build" and select the build subfolder created at step 2.
+5. Click "Configure", select "Visual Studio 16 2019" as Generator and "x64" as platform, then click "Finish" and wait for CMake to detect the configuration
+6. Use the Search box to find and set the following entries to the correct value :
 ```
-  a. set BUILD_PROTOBUF to FALSE
-  b. set WITH_PROTOBUF to FALSE
-  c. set BUILD_opencv_python3 to FALSE
-  d. set BUILD_opencv_python_bindings_generator to FALSE
-  e. set BUILD_opencv_world to TRUE
-  f. Hit "Generate" to generate the build files, and then hit "Open Project"
+  BUILD_PROTOBUF to FALSE
+  WITH_PROTOBUF to FALSE
+  BUILD_opencv_python3 to FALSE
+  BUILD_opencv_python_bindings_generator to FALSE
+  BUILD_opencv_world to TRUE  
 ```
-4. Build the INSTALL target in RELEASE configuration.  This will install OpenCV in the ./build/install directory where OpenCV is located
-5. Switch to Debug configuration and build the INSTALL target again.  This will install debug dlls (postfixed with d in the filename) in the ./build/install directory as well
+7. Hit "Generate" to generate the build files, and then hit "Open Project" if you want to open it using Visual Studio
+8. Build the INSTALL target in RELEASE configuration.  This will install OpenCV in the ./build/install directory where OpenCV is located
+9. Switch to Debug configuration and build the INSTALL target again.  This will install debug dlls (postfixed with d in the filename) in the ./build/install directory as well
 
   LINUX :
   On linux, OpenCV is built and directly installed system-wide.
