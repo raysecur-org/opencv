@@ -29,13 +29,15 @@ WINDOWS
 - Install some opencv dependencies
   ```
   > sudo apt install libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev
-  > sudo apt install libcanberra-gtk-module
+  > sudo apt install libcanberra-gtk-module ffmpeg
   ```
   Then clone and build OpenCV
   ```
   > git clone https://github.com/raysecur-org/opencv.git
   > cd opencv
+  > git checkout release/4.1.x
   > mkdir build && cd build
+  > sudo apt install pkg-config
   > cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PROTOBUF=false -D WITH_PROTOBUF=false -D BUILD_opencv_python3=false -D BUILD_opencv_python_bindings_generator=false -D BUILD_opencv_world=true ..
   > make -j7
   > sudo make install
