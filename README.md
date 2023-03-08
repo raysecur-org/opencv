@@ -33,11 +33,11 @@ WINDOWS
   ```
   Then clone and build OpenCV
   ```
- > git clone https://github.com/raysecur-org/opencv.git
- > cd opencv
- > mkdir build && cd build
- > cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PROTOBUF=false -D WITH_PROTOBUF=false -D BUILD_opencv_python3=false -D BUILD_opencv_python_bindings_generator=false -D BUILD_opencv_world=true ..
- > make -j7
- > sudo make install
+  > git clone https://github.com/raysecur-org/opencv.git
+  > cd opencv
+  > mkdir build && cd build
+  > cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PROTOBUF=false -D WITH_PROTOBUF=false -D BUILD_opencv_python3=false -D BUILD_opencv_python_bindings_generator=false -D BUILD_opencv_world=true ..
+  > make -j7
+  > sudo make install
 ```
 
