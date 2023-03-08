@@ -32,7 +32,7 @@ WINDOWS
   > sudo apt install libcanberra-gtk-module
   ```
   Then clone and build OpenCV
-  ```bash
+  ```
  > git clone https://github.com/raysecur-org/opencv.git
  > cd opencv
  > mkdir build && cd build
