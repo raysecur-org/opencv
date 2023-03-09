@@ -13,7 +13,7 @@ See [this ticket](https://ray-secur.atlassian.net/browse/RAYS-56) for more infor
 WINDOWS 
 1. Clone this repository to the desired filesystem location.  The correct branch to be cloned is release/4.1.x which can be cloned directly using command : 
 ```
-git clone https://github.com/raysecur-org/opencv.git --branch release/4.1.x --single-branch
+git clone https://github.com/raysecur-org/opencv.git --branch release/4.1.1 --single-branch
 ```
 2. Create a "build" subfolder in the cloned directory
 3. Start cmake-gui and click "Browse Source..." and select the opencv clone directory
