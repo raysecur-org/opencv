@@ -11,13 +11,16 @@ See [this ticket](https://ray-secur.atlassian.net/browse/RAYS-56) for more infor
 ### Building
 
 WINDOWS 
-1. Clone this repository to the desired filesystem location
+1. Clone this repository to the desired filesystem location.  The correct branch to be cloned is release/4.1.x which can be cloned directly using command : 
+```
+git clone https://github.com/raysecur-org/opencv.git --branch release/4.1.x --single-branch
+```
 2. Create a "build" subfolder in the cloned directory
 3. Start cmake-gui and click "Browse Source..." and select the opencv clone directory
 4. Click "Browse Build" and select the build subfolder created at step 2.
 5. Click "Configure", select "Visual Studio 16 2019" as Generator and "x64" as platform, then click "Finish" and wait for CMake to detect the configuration
 6. Use the Search box to find and set the following entries to the correct value :
-```
+```  
   BUILD_PROTOBUF to FALSE
   WITH_PROTOBUF to FALSE
   BUILD_opencv_python3 to FALSE
