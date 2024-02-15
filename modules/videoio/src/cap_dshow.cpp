@@ -827,7 +827,7 @@ void videoDevice::setSize(int w, int h){
         {
             videoSize      = w * h;
         }
-        else if (pAmMediaType->subtype == MEDIASUBTYPE_Y16)
+        else if (pAmMediaType->subtype == MEDIASUBTYPE_Y16 || pAmMediaType->subtype == MEDIASUBTYPE_RGB565)
         {
             videoSize      = w * h * 2;
         }
@@ -1571,7 +1571,7 @@ bool videoInput::getPixels(int id, unsigned char * dstBuffer, bool flipRedAndBlu
                 {
                     memcpy(dst, src, width * height);
                 }
-                else if (VDList[id]->pAmMediaType->subtype == MEDIASUBTYPE_Y16)
+                else if (VDList[id]->pAmMediaType->subtype == MEDIASUBTYPE_Y16 || VDList[id]->pAmMediaType->subtype == MEDIASUBTYPE_RGB565)
                 {
                     if (!VDList[id]->convertRGB) {
                         memcpy(dst, src, width * height * 2);
@@ -2891,7 +2891,7 @@ int videoInput::start(int deviceID, videoDevice *VD){
 
     // Disable format conversion if using 8/16-bit data (e-Con systems)
     if (checkSingleByteFormat(VD->pAmMediaType->subtype) ||
-        (VD->pAmMediaType->subtype == MEDIASUBTYPE_Y16 || VD->pAmMediaType->subtype == MEDIASUBTYPE_NV12))
+        (VD->pAmMediaType->subtype == MEDIASUBTYPE_Y16 || VD->pAmMediaType->subtype == MEDIASUBTYPE_NV12 || VD->pAmMediaType->subtype == MEDIASUBTYPE_RGB565))
     {
         DebugPrintOut("SETUP: Not converting frames to RGB.\n");
         mt.subtype = VD->pAmMediaType->subtype;
@@ -3636,7 +3636,7 @@ bool VideoCapture_DShow::retrieveFrame(int, OutputArray frame)
     // Set suitable output matrix type (e-Con systems)
     if (checkSingleByteFormat(g_VI.getMediasubtype(m_index))){
         frame.create(Size(w, h), CV_8UC1);
-    } else if (g_VI.getMediasubtype(m_index) == MEDIASUBTYPE_Y16 && !convertRGB) {
+    } else if ((g_VI.getMediasubtype(m_index) == MEDIASUBTYPE_Y16 || g_VI.getMediasubtype(m_index) == MEDIASUBTYPE_RGB565) && !convertRGB) {
         frame.create(Size(w, h), CV_16UC1);
     } else {
         frame.create(Size(w, h), CV_8UC3);
